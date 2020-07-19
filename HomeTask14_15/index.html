@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "jquery-3.5.1.js"></script>
+</head>
+<body>
+    <h2>Random String Generator</h2>
+    <form action="">
+        <p>String should be <input id = "length" style = "width: 30px;" type = "number" min = "0" max = "100"> characters long</p>
+        <p>Which characters are allowed to occur in the string?</p>
+        <input type="checkbox" name = "check" value = "0"><label for="">Numeric digits(0-9)</label><br>
+        <input type="checkbox" name = "check" value = "1"><label for="">Uppercase letters(A-Z)</label><br>
+        <input type="checkbox" name = "check" checked value = "2"><label for="">Lowercase letters(a-z)</label><br>
+        <button id = "generate" style = "margin: 1% 0 0 2%;">Generate</button>
+    </form> 
+    <br><hr><br>
+    <label>Result:</label><output id = "res"></output>
+    <script>
+        $(document).ready(()=>{
+            function rnd(min, max) {
+                return Math.floor(Math.random() * (max - min)) + min;
+            }      
+            let uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let lc = "zyxwvutsrqponmlkjihgfedcba";
+            let num = "0123456789";
+            let ar = [num,uc,lc];
+            $("button").eq(0).click((event)=>{
+                event.preventDefault();
+                let checks = $(`body input:checkbox`);
+                let ch = [];
+                for(let elem of checks){
+                    if(elem.checked){
+                        ch.push(elem.value);
+                    }
+                }
+                let result = "";
+                let length = $("input").first().val();
+                let povt = 0;
+                while(length > 0){
+                    for(let elem of ch){
+                        povt = rnd(0,4);
+                        if(length - povt < 0){
+                            povt = length;
+                            length = 0;
+                        }
+                        else{
+                            length -= povt;
+                        }
+                        while(povt > 0){
+                            if(elem == 0){
+                                result += ar[elem][rnd(0,9)];
+                            }
+                            else{
+                                result += ar[elem][rnd(0,25)];
+                            }
+                            povt--;
+                        } 
+                    }
+                }
+                $("output").first().val(result);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Изменение свойств горизонтальной линии</title>
+
+</head>
+
+    <body>
+
+        <h2>Горизонтальные линии</h2>
+
+        <p>
+
+        Выберите значения параметров, которые требуется изменить,
+
+        и нажмите кнопку <em>Выполнить</em>
+
+        </p>
+
+        <div id="linia" style="width:100px;height:10px;background-color: blue;">
+
+        </div>
+
+        <div id="container" style="width:500px;overflow:auto;margin:10px;position: bottom;"></div>
+
+        <div id="item1" style="
+
+        width:60%;border: 1px solid green;float:left;">
+
+        <p>Выравнивание</p>
+
+        <p><input type="radio" id="group1"checked>Left</p>
+
+        <p><input type="radio" id="group2">Center</p>
+
+        <p><input type="radio" id="group3">Right</p>
+
+        <p><input id="size" style="width: 10%; height: 10px;"/>Толщина линии (Size)</p>
+
+        <p><input id="width"/>Длина линии (Width)</p>
+
+        </div>
+
+        <div id="item2"style="width:39%;height:225px;border: 1px solid green;float:right">
+
+        <p>
+
+        <p>Цвет линии (color) </p>
+
+        <select name="choice" id="choice" value="background-color:green">
+
+        <option value="background-color:green">green</option>
+
+        <option value="background-color:red">red</option>
+
+        <option value="background-color:blue">blue</option>
+
+        <option value="background-color:yellow">yellow</option>
+
+        </select>
+
+        </p>
+
+        </div>
+
+        <div id="container1" style="width:300px;overflow:auto;margin:5px;">
+
+        </div>
+
+        <div id="item3" style="
+
+        width:45%;float:left;"></div>
+
+        <button id ="ok"style="background-color: burlywood;width: 100px; height: 30px;">Выполнить</button>
+
+        <div id="item4" style="width:45%;float:right">
+
+        <button id="cancel" style="background-color: burlywood;width: 100px; height: 30px;">Обновить</button>
+
+        </div>
+
+        <script>
+
+        document.querySelector("#ok").addEventListener("click", () => {
+
+        //var d = "350px"
+
+        //linia.style.width = d;
+
+        document.querySelector("#linia").style.width = document.querySelector("#width").value +"px";
+
+        });
+
+        </script>
+
+        </body>
+
+</html>

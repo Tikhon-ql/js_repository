@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        #line{
+            width: 300px;
+            height: 10px;
+            background-color: gray;
+            margin: 300px 300px 300px 450px;
+            position: relative;
+        }
+        #square{
+            height: 15px;
+            width: 15px;
+            background-color: skyblue;
+            position: absolute;
+            left: 10px;
+            top:-2px;
+        }
+        .divs{
+            border: 1px solid black;
+            background-color:springgreen;
+            width: 700px;
+            height: 30px;
+        }
+        .divs p {
+            background-color: turquoise;
+            display: none;
+        }
+        #news{
+            overflow-y: scroll;
+            width: 500px;
+            height: 150px;
+            text-align: center;
+            margin: 0 0 0 30%;
+        }
+        table tr td,th{
+            border:1px solid black;
+        }
+        table{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id = "line">
+        <div id = "square">
+        </div>
+    </div> -->
+    <div id = "task2" style = "display: flex; justify-content: center;">
+        <button id = "left" style = "justify-content: start; width: 100px; height: 70px; margin-top: 30px ;"><i class="fa fa-caret-left" aria-hidden="true" ></i></button>
+        <img id = "forImage" src="images/css.jpg" style="width: 150px; height: 150px;" alt="">
+        <button id = "rigth" style = "justify-content: end;  width: 100px; height: 70px;margin-top: 30px;"><i class="fa fa-caret-right" aria-hidden="true"></i></button>
+    </div>
+    <br><hr><br>
+    <div id="div1" class = "divs">Lorem ipsum dolor sit amet.<p id = "p1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima ipsum similique corrupti unde dolorum doloremque.</p></div>
+    <div id="div2" class = "divs">Lorem ipsum dolor sit amet consectetur adipisicing.<p id = "p2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti deserunt voluptatibus facilis, aliquid eius magnam praesentium voluptas aliquam saepe eum, laboriosam aut quaerat doloremque ipsa tempore consequatur fugit debitis exercitationem tenetur odit numquam ducimus! Accusantium assumenda modi odit ipsum, animi aliquid tenetur nihil amet odio, laudantium molestiae ab, cum pariatur.</p></div>
+    <div id="div3" class = "divs">Lorem, ipsum dolor.<p id = "p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dicta optio ipsum. Voluptatem quaerat perferendis cumque numquam provident doloremque, laboriosam qui, maxime nisi dignissimos optio?</p></div>
+    <div id="div4" class = "divs">Lorem ipsum dolor sit amet consectetur.<p id = "p4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad optio maxime nesciunt officiis explicabo, fugiat officia ipsum eligendi sed nulla, possimus debitis sequi maiores rerum quibusdam nobis, sint recusandae non!</p></div>
+    <br><hr><br>
+    <div id = "news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur vero labore maxime repudiandae consequuntur, fugiat rerum at aliquid nesciunt, expedita sit? Itaque quos, eligendi amet porro, distinctio excepturi quasi consectetur error repudiandae et expedita obcaecati veritatis harum quia modi minus est omnis quibusdam natus necessitatibus at atque, exercitationem ex. Amet, reprehenderit nostrum ad obcaecati, numquam culpa doloremque impedit facilis voluptates alias ipsum aliquam. A necessitatibus minus repellat numquam, facere vitae itaque incidunt? Fugit vel praesentium iure recusandae, expedita aspernatur tempore minus quo, in necessitatibus dolore! Totam earum est, dolor quibusdam obcaecati quo dignissimos minus? Explicabo ducimus assumenda odio earum veritatis tenetur ad deleniti sit nihil dolore voluptates, unde nemo mollitia enim non neque dolorem quidem veniam necessitatibus repellat praesentium voluptas debitis maiores? Saepe aspernatur assumenda sapiente. Id expedita eos soluta necessitatibus deserunt error tempore mollitia quaerat dignissimos quas sequi facilis iure minima optio cupiditate impedit sint reprehenderit unde delectus ab minus magni, quibusdam repellendus. Voluptatibus, alias! Ex provident doloremque hic.</div>
+    <br><hr><br>
+    <form action="" >
+        <input type="number" min ="0" max = "12" name="month" id="month" style = "margin: 0 0 0 35%;"  onkeypress = "return false"/>
+        <input type="number" min ="0" name="year" id="year" onkeypress="return false"/>
+        <input type="submit" id = "submit" value = "Generate"/>
+    </form>
+    <table style = "width: 700px; margin-left:20%">
+        <label for="" id = "label" style = "font-size: large; margin-left: 15%; margin-top: 20%;"></label>
+        <tr>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SUT</th>
+            <th>SUN</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script src = "script.js"></script>
+</body>
+</html>

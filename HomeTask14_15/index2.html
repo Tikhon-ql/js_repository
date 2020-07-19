@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src = "jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <title>Document</title>
+    <style>
+        body{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id = "main" style = "display: flex;width: 1350px;height: 600px; margin: 0;">
+        <div id = "left" style = "justify-content: start; width:270px;height: 100%;">
+            <div class = "first1" style = "width: 100%; height: 292px; background-color:aqua;"></div>
+            <!-- <div class ="updown" style = "text-align: center; font-size:30px; width: 100%;"><i class="fa fa-exchange" aria-hidden="true"></i></div> -->
+            <div class = "second1" style = "width: 100%; height: 292px;background-color:pink ;"></div>
+        </div>
+        <div id = "hideReigth" style = "width: 1%; font-size: 35px;margin-top: -2.5%"><i id ="arrow" class="fa fa-caret-left" aria-hidden="true" style = "margin-top: 325px;"  data-user = "left"></i></div>
+        <div id = "right" style = "justify-content: end;width: 1080px; height: 100%;margin: 0;">
+            <div class = "first2" style = "width: 100%; height: 400px;background-color: greenyellow;"></div>
+            <!-- <div class = "updown" style = "text-align: center; font-size:30px; width: 100%;"><i class="fa fa-exchange" aria-hidden="true"></i></div> -->
+            <div class = "second2" style = "width: 100%; height: 185px;background-color: magenta;"></div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(()=>{
+            console.dir($("#arrow"));
+            document.querySelector("#arrow").addEventListener("click",function(){
+                if($("#arrow").attr("data-user") == "left"){
+                    $("#left").hide({delay:"1500"});
+                    $("#arrow").attr("data-user","right");
+                    $("#arrow").attr("class","fa fa-caret-right");
+                    $("right").css("width","1350px");
+                }
+                else{
+                    $("#left").show({delay:"1500"});
+                    $("#arrow").attr("data-user","left");
+                    $("#arrow").attr("class","fa fa-caret-left");
+                    $("right").css("width","1080px");
+                }
+            })
+            // $("#arrrow").click(()=>{
+            //     if($("#arrow").attr("data-user") == "left"){
+            //         $("#left").hide();
+            //         $("#arrow").attr("data-user","right");
+            //         $("#arrow").attr("class","fa fa-caret-right");
+            //     }
+            //     else{
+            //         $("#left").show();
+            //         $("#arrow").attr("data-user","left");
+            //         $("#arrow").attr("class","fa fa-caret-left");
+            //     }
+            // })
+            // let flag = false;
+          
+            // $(".updown").mousedown((event)=>{
+            //     flag = true;
+            // })
+            // $(".first").resizable();
+            // $(".second").resizable();
+            // $(".updown").draggable({containment: "parent"});
+            // $(".updown").mouseout(function(){
+            //     $(this).css({backgroundColor:"white"});
+            //     flag = false;
+            // })
+            // $(".updown").mousemove(function(event){
+            //     if(flag){
+            //         if(event.target.parentElement.parentElement.id == "right"){
+            //             ind = 1;
+            //         }
+            //         else{
+            //             ind = 0;
+            //         }
+            //         let first = $(".first").eq(ind);
+            //         let second = $(".second").eq(ind);
+            //         let mid = $(".updown").eq(ind);
+            //         console.log(first[0].style.height);
+            //         console.log(event.clientY);
+            //         let changeFirstHeight = first[0].style.height  - (event.clientY - first[0].style.height)+ "px";
+            //         console.dir(first[0]);
+            //         $(first[0]).attr("height",changeFirstHeight);
+            //         console.log(first[0].style.height);
+            //         console.log(event.clientY);
+            //         let changeSecondHeight = second[0].style.height + (event.clientY - second[0].style.height) + "px";
+            //         $(seond[0]).attr("height",changeSecondHeight);
+            //     }
+            // })
+            $(".first1").resizable();
+            $(".first2").resizable();
+            $(".second1").resizable();
+            $(".second2").resizable();
+        })
+    </script>
+</body>
+</html>

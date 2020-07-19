@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table tr td,th{
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>
+                Direction
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+        <tr>
+            <td>Odessa-Lvov</td>
+            <td>25.05.2020</td>
+        </tr>
+        <tr>
+            <td>Minsk-Moscow</td>
+            <td>30.05.2020</td>
+        </tr>
+        <tr>
+            <td>Gomel-Brest</td>
+            <td>01.06.2020</td>
+        </tr>
+    </table>
+    <form action="">
+        <label for="" style = "margin-left: 25%; font-size: 20px;">Direction: </label><select name="" id="direction">
+            <option value="0">Odessa-Lvov</option>
+            <option value="1">Minsk-Moscow</option>
+            <option value="2">Gomel-Brest</option>
+        </select>
+        <label for="" style = "margin-left: 2%; font-size: 20px;"> Date: </label><input type="text" name="" id="billetdate">
+        <button id = "search" style = "font-size: 15px;width: 8%; margin-left: 2%;">Search</button>
+    </form>
+    <button id = "book" style = "margin-left: 90%;display: none;">Book</button>
+    <br><hr><br>
+    <table id = "table2"></table>
+    <button style = "width: 120px; margin-left: 45%; display: none;" id = "ok">OK</button>
+   <table id = "table3">
+
+   </table>
+    <script src = "scripttsk6.js"></script>
+</body>
+</html>

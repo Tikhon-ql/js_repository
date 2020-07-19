@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .diiv{
+            border: 1px solid black;
+        }
+        table tr td {
+            border: 1px solid black;
+        }
+        table{
+            width: 50%;
+            margin-left: 25%;
+            display: none;
+        }
+        table td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <div class = "diiv" style = "display: flex;"><p style = "justify-content: start;">Name</p><p id = "date" style = "margin-left: 80%;"></p></div>
+        <div class = "diiv">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio tempora eveniet unde, facere harum quis esse repellat qui non modi id, officia molestias incidunt quaerat doloremque voluptates ratione voluptas consequuntur tenetur sint et vitae dolor nam fugiat. Atque dicta dolorem, sint laborum delectus eligendi, architecto, fugit in odit minima aperiam doloribus. Iure eum ipsa porro deserunt voluptas culpa nisi beatae eius blanditiis ullam alias sint quis, minus officia dolorum reiciendis est a in provident tempora? A, corporis cumque repellendus quod ut neque magni vel aliquam fuga impedit tempore aliquid sit recusandae quis omnis quo voluptatem pariatur nihil voluptatibus officia minus repudiandae inventore? Maiores esse earum eum quisquam unde, dolorem veniam facere nostrum libero, similique voluptatum, labore eveniet incidunt! Velit facilis voluptatibus magni nulla voluptate deserunt ducimus incidunt culpa? Architecto eum quibusdam voluptatem maxime sunt, neque corporis quas enim laboriosam cupiditate doloremque velit nesciunt sit consequatur delectus, impedit reprehenderit! Vel, in.    
+        </div>
+    </div>
+    <form action="" name = "styles"> 
+        <fieldset>
+            <div style="display:flex;">
+                <label for="" style = "justify-content: start; font-size: large;">Your name:</label><input type="text" name="name" id="name" style = "width: 100%;height: 20%; ;justify-content: end;">
+            </div>
+            <div style = "display: flex;">
+                <label for="" style = "justify-content: start; font-size: large;">Your message:</label><input type="text" name="message" id="message" style = "width: 100%;justify-content: end;">
+            </div>
+            <input type="submit" name="submit" id="submit" style = "margin-left: 30%; width: 35%; background-color: cornflowerblue; margin-top: 1%;">
+        </fieldset>
+    </form>
+    <br><hr><br>
+    <button id = "but" style = "width: 20%; margin-left: 38%; height: 70px;">Начать тест</button>
+    <div id = "task2">
+    </div>
+    <br><hr><br>
+    <form action="" style = "font-size: 20px; text-align: center;">
+        <input type="checkbox" value = "bold">Bold</input>
+        <input type="checkbox" value="underline">Underline</input>
+        <input type="checkbox" value = "italic">Italics</input>
+        <input type="radio" name = "place" value = "left">Left</input>
+        <input type="radio" name = "place" value = "right">Right</input>
+        <input type="radio" name = "place" value = "justify">Justify</input>
+    </form>
+    <textarea id = "task3" style = "margin-left: 30%; border: 1px solid black; width: 500px; height: 300px;font-size: 20px;"></textarea>
+    <br>
+    <button id = "showtext" style = " width:200px; height: 70px; margin-left: 41.5%;">Show text</button>
+    <div style = "display: none; margin-left: 30%;" id = "restsk3">
+        <p><b>Result:</b></p>
+        <div style = "width: 500px; height: 300px; border: 1px solid black;" id = "fortext"></div>
+    </div>
+
+    <br><hr><br>
+
+    <div id = "shop" style="display:flex;width: 90%;margin-left: 5%;">
+        <div id = "cart1" style = "border: 1px solid black;margin: 1%;width: 20%;height: 350px;">
+            <img src="book1.jpg" alt="" style="width: 90%;height: 170px;margin-left: 5%;">
+            <p id = "name1">
+                <b>JavaScript essendafs for modern application Development.</b><br>Ethan Brown
+            </p>
+            <p id = "price1">
+                <b style = "margin-left: 80%;">16$</b>
+            </p>
+            <button id = "but1" style = "width: 70%;margin-left: 15%;">Select</button>
+        </div>
+        <div id = "cart2" style = "border: 1px solid black;margin: 1%;width: 20%;height: 350px;">
+            <img src="book2.jpg" alt="" style="width: 90%;height: 170px;margin-left: 5%;">
+            <p id = "name2">
+                <b>JavaScript&JQuery.<br>Plagin of JQuery<br>Complete guide.</b><br>Devid MacFarland
+            </p>
+            <p id = "price2">
+                <b style = "margin-left: 80%;">16$</b>
+            </p>
+            <button id = "but2" style = "width: 70%;margin-left: 15%;">Select</button>
+        </div>
+        <div id = "cart3" style = "border: 1px solid black;margin: 1%;width: 20%;height: 350px;">
+            <img src="book3.jpg" alt="" style="width: 90%;height: 170px;margin-left: 5%;">
+            <b id = "name3">
+                <b>JavaScript for dummies.</b>Learning JavaScript<br>Step-by-step training<br></b>Chris Minnick
+            </p>
+            <p id = "price3">
+                <b style = "margin-left: 80%;">16$</b>
+            </p>
+            <button id = "but3" style = "width: 70%;margin-left: 15%;margin-top: 8%;">Select</button>
+        </div>
+        <div id = "placeForFill" style = "border: 1px solid black;margin: 1%;width: 40%;height: 350px;">
+        <label>Book: </label><input type="text" name="book" id="book" placeholder="" style = "width: 50%;"><br><br>   
+            <label>Count: </label><input type="number" min = "1" name="count" id="count" placeholder="" style = "width: 50%;"><br><br>
+            <label>Name: </label><input type="text" name="nname" id="nname" placeholder="" style = "width: 50%;"><br><br>
+            <label>Delivery address: </label><input type="text" name="address" id="address" placeholder="" style = "width: 50%;"><br><br>
+            <!-- <label>Delivery date: </label><input type="date" name="date" id="date" placeholder=""style = "width: 50%;"><br><br> -->
+            <label>Delivery date: </label><input type="date" name="date" id="date" placeholder=""style = "width: 50%;"><br><br> 
+            <label>Comment: </label><textarea name="comment" id="comment" style = "height: 100px;width: 50%;"></textarea><br>
+            <button id = "buy" style = "width: 75%;margin-left: 13%;margin-top: 3%;">Buy</button>
+        </div>
+    </div>
+    <div id = "tsk4result" style = "width: 70%;margin-left: 10%;font-size: 15px; display: none;border: 1px solid black;">
+
+    </div>
+    <br><br><hr><br><br>
+    <form action="">
+        <label for="" style = "margin-left: 25%; font-size: 20px;">Group: </label><select name="" id="group">
+            <option value="group1">Group1</option>
+            <option value="group2">Group2</option>
+            <option value="group3">Group3</option>
+        </select>
+        <label for="" style = "margin-left: 2%; font-size: 20px;"> Lesson: </label><select name="" id="lesson" style = "width: 7%;">
+            <option value="lesson1">1</option>
+            <option value="lesson2">2</option>
+            <option value="lesson3">3</option>
+        </select>
+        <button id = "select" style = "font-size: 15px;width: 8%; margin-left: 2%;">Select</button>
+    </form>
+    <br><hr>
+   <div style = "display: flex;"><p style = "margin-left: 25%; font-size: 20px;justify-content: start;">Topic</p> <p id = "topic" style = "border: 1px solid gray;width: 50%;margin-left:1% ;height: 25px;background-color:khaki"></p></div>
+    <div>
+        <table>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Present
+                </th>
+            </tr>
+        </table>
+        <table id = "table">
+        </table>
+        <button id = "save" style = "width: 20%;margin-left: 40%;height: 30px;display: none; margin-top: 1%;">Save</button>
+    </div>
+    <br><hr><br>
+
+    <script src = "script.js"></script>
+</body>
+</html>

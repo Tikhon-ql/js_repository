@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto?%06&sidebar.open&selection.family=Roboto:ital,wght@1,500#standard-styles">
+    <style>
+        body{
+            background-image: url("fon6.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+        }
+        .divv{
+            border: 5px solid #FF4500;
+            border-radius: 10px;
+        }
+        /* form{
+            border: 5px solid #F0E68C;
+            border-radius: 10px;
+        } */
+        .pp{
+            background-color: #EEE8AA;
+        }
+        button {
+            display: inline-flex;
+            margin: 10px;
+            text-decoration: none;
+            border: 2px solid #FF8C00;
+            position: relative;
+            overflow: hidden;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px 30px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase; 
+            font-family: 'Roboto Condensed', Тahoma, sans-serif;
+            background: #BDB76B;
+            transition: box-shadow 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        button:hover,
+        button:active,
+        button:focus {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+            color: #FFF;
+        }
+        button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+        button:hover:before,
+        button:active:before,
+        button:focus:before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <form action="" style = "width: 30%;margin-left: 30%;">
+                <label for="">Title: </label><input type="text" style = "margin-left: 33%;width: 48%;" name = "title" id = "title"><br><br>
+                <label for="">Type: </label>
+                <select name="type" id="type" style = "margin-left: 33%; width: 48%;" >
+                    <option value="movie">Movie</option>  
+                    <option value="series">Series</option>  
+                    <option value="episode">Episode</option>  
+                </select>
+                <button  style = "width: 90%; margin-top: 5%;" id = "search">Search</button>
+        </form>
+        <img id = "gif" src="" alt="" style = "display: none; width: 100px; height: 100px;margin-top: 10%;margin-left: 42%;">
+        <div style = "display: flex;">
+            <button id = "left" style = "margin-top: 10%; height: 150px;display: none; background-color: #EEE8AA;" disabled="disabled"><i class="fa fa-chevron-circle-left" aria-hidden="true" style = "justify-content: start;"></i></button>
+            <div class = "divv" id = "show" style = "height: 350px; width: 85%;margin-top: 5%;display: none;font-size: 20px;justify-content: center;">
+            </div>
+            <button id = "rigth" style = "margin-top: 10%;height: 150px;display: none;"><i class="fa fa-chevron-circle-right" aria-hidden="true" style = "justify-content: end; "></i></button>
+        </div>
+       
+        <div id = "slider" style = "width: 70%; height: 50px; margin-left: 17%; display: none;">
+            <button value = "left" data-user = "left" style = "background-color: #EEE8AA;" disabled = "disabled"><i class="fa fa-chevron-left" aria-hidden="true" data-user = "left"></i></button>
+            <button value = "1">1</button> 
+            <button value = "2">2</button>
+            <button value = "3">3</button>
+            <button value = "4">4</button>
+            <button value = "5">5</button>
+            <button value = "6">6</button>
+            <button value = "rigth" data-user = "rigth"><i class="fa fa-chevron-right" aria-hidden="true" data-user = "rigth"></i></button>
+        </div>
+    </div>
+    <div class = "divv" id = "showDetails" style = "display: none; width: 80%; margin-left: 10%;">
+        <!-- <p style = "margin-left: 42%; font-size: 25px;">Film info</p> -->
+        <div style = "justify-content: start; width: 50%; height: 700px; margin: 5% 2% 5% 2%;">
+            <img id = "imgDet" src="" alt="" style = "width: 100%; height: 100%;">
+        </div>
+        <div style = "justify-content: end;font-size: 20px; margin:5% 2% 5% 2%; background-color: darkkhaki;">
+            <label for="">Title: </label><output class = "pp" id = "titleDet"></output><br><hr><br>
+            <label for="">Released: </label><output class = "pp" id = "release"></output><br><hr><br>
+            <label for="">Genre: </label><output class = "pp" id = "genre"></output><br><hr><br>
+            <label for="">Country: </label><output class = "pp" id = "country"></output><br><hr><br>
+            <label for="">Director: </label><output class = "pp" id = "director"></output><br><hr><br>
+            <label for="">Writer: </label><output class = "pp" id = "writer"></output><hr><br>
+            <label for="">Actors: </label><output class = "pp" id = "actors"></output><br><hr><br>
+            <label for="">Awards: </label><output class = "pp" id = "awards"></output><br><hr><br>
+            <button id = "back">Back</button>
+        </div>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>

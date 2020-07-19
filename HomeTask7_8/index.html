@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto?%06&sidebar.open&selection.family=Roboto:ital,wght@1,500#standard-styles">
+    <style>
+        body{
+            background-image: url("fon6.jpg");
+            background-repeat: no-repeat;
+            background-size: auto;
+        }
+        .divv{
+            border: 5px solid #FF4500;
+            border-radius: 10px;
+        }
+        /* form{
+            border: 5px solid #F0E68C;
+            border-radius: 10px;
+        } */
+        .pp{
+            background-color: #EEE8AA;
+        }
+        button {
+            display: inline-flex;
+            margin: 10px;
+            text-decoration: none;
+            border: 2px solid #FF8C00;
+            position: relative;
+            overflow: hidden;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px 30px;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase; 
+            font-family: 'Roboto Condensed', Тahoma, sans-serif;
+            background: #BDB76B;
+            transition: box-shadow 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        button:hover,
+        button:active,
+        button:focus {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 16px 20px rgba(0,0,0,0.2);
+            color: #FFF;
+        }
+        button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, transparent, rgba(191, 226, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+        button:hover:before,
+        button:active:before,
+        button:focus:before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <form action="" style = "width: 30%;margin-left: 30%;">
+                <label for="">Title: </label><input type="text" style = "margin-left: 33%;width: 48%;" name = "title" id = "title"><br><br>
+                <label for="">Type: </label>
+                <select name="type" id="type" style = "margin-left: 33%; width: 48%;" >
+                    <option value="movie">Movie</option>  
+                    <option value="series">Series</option>  
+                    <option value="episode">Episode</option>  
+                </select>
+                <button  style = "width: 90%; margin-top: 5%;" id = "search">Search</button>
+        </form>
+        <div style = "display: flex;">
+            <button id = "left" style = "margin-top: 10%; height: 150px;display: none; background-color: #EEE8AA;" disabled="disabled"><i class="fa fa-chevron-circle-left" aria-hidden="true" style = "justify-content: start;"></i></button>
+            <div class = "divv" id = "show" style = "height: 350px; width: 85%;margin-top: 5%;display: none;font-size: 20px;justify-content: center;">
+            </div>
+            <button id = "rigth" style = "margin-top: 10%;height: 150px;display: none;"><i class="fa fa-chevron-circle-right" aria-hidden="true" style = "justify-content: end; "></i></button>
+        </div>
+       
+        <div id = "slider" style = "width: 70%; height: 50px; margin-left: 17%; display: none;">
+            <button value = "left" data-user = "left" style = "background-color: #EEE8AA;" disabled = "disabled"><i class="fa fa-chevron-left" aria-hidden="true" data-user = "left"></i></button>
+            <button value = "1">1</button> 
+            <button value = "2">2</button>
+            <button value = "3">3</button>
+            <button value = "4">4</button>
+            <button value = "5">5</button>
+            <button value = "6">6</button>
+            <button value = "rigth" data-user = "rigth"><i class="fa fa-chevron-right" aria-hidden="true" data-user = "rigth"></i></button>
+        </div>
+    </div>
+    <div class = "divv" id = "showDetails" style = "display: none; width: 80%; margin-left: 10%;">
+        <!-- <p style = "margin-left: 42%; font-size: 25px;">Film info</p> -->
+        <div style = "justify-content: start; width: 50%; height: 700px; margin: 5% 2% 5% 2%;">
+            <img id = "imgDet" src="" alt="" style = "width: 100%; height: 100%;">
+        </div>
+        <div style = "justify-content: end;font-size: 20px; margin:5% 2% 5% 2%; background-color: darkkhaki;">
+            <label for="">Title: </label><output class = "pp" id = "titleDet"></output><br><hr><br>
+            <label for="">Released: </label><output class = "pp" id = "release"></output><br><hr><br>
+            <label for="">Genre: </label><output class = "pp" id = "genre"></output><br><hr><br>
+            <label for="">Country: </label><output class = "pp" id = "country"></output><br><hr><br>
+            <label for="">Director: </label><output class = "pp" id = "director"></output><br><hr><br>
+            <label for="">Writer: </label><output class = "pp" id = "writer"></output><hr><br>
+            <label for="">Actors: </label><output class = "pp" id = "actors"></output><br><hr><br>
+            <label for="">Awards: </label><output class = "pp" id = "awards"></output><br><hr><br>
+            <button id = "back">Back</button>
+        </div>
+    </div>
+    <script>
+        let currentResult = [];
+        let flag = false;
+        let indexOfLast = 2;
+        let currDetails;
+        let currPage = 1;
+        let lastOfSlider = 6;
+        function fillShowDiv(){
+            let showDiv = document.querySelector("#show");
+            document.querySelector("#left").style.display = "block";
+            document.querySelector("#rigth").style.display = "block";
+            // slider.children[0].disabled = true;
+            // slider.children[0].style.backgroundColor = "#EEE8AA";
+            showDiv.children = [];
+            while (showDiv.firstChild){
+                showDiv.removeChild(showDiv.firstChild);
+            }
+            document.querySelector("#slider").style.display = "block";
+            showDiv.style.display = "flex";
+            let first = document.createElement("div");
+            if(currentResult.Search[indexOfLast - 2].Poster == "N/A"){
+                currentResult.Search[indexOfLast - 2].Poster = "notfound.jpg";
+            }
+            if(currentResult.Search[indexOfLast - 1].Poster == "N/A"){
+                currentResult.Search[indexOfLast - 1].Poster = "notfound.jpg";
+            }
+            if(currentResult.Search[indexOfLast].Poster == "N/A"){
+                currentResult.Search[indexOfLast].Poster = "notfound.jpg";
+            }
+            first.innerHTML = `<div  style = "justify-content: start;width: 85%;margin:2% 1% 2% 10%;display: flex; height: 90%; background-color: darkgoldenrod;">
+                                <div id = "img1" style = "justify-content: start; width: 220px; height: 80%; margin: 5% 2% 5%% 2%;">
+                                    <img src="${currentResult.Search[indexOfLast - 2].Poster}" alt="" style = "width: 100%; height: 100%;">
+                                </div>
+                                <div style="justify-content: end; margin-left:3%;font-family:Roboto; font-size:15px;">
+                                    <p id = "type1">${currentResult.Search[indexOfLast - 2].Type}</p>
+                                    <p id = "title1" style = "width:100px">${currentResult.Search[indexOfLast - 2].Title}</p>
+                                    <p id = "year1">${currentResult.Search[indexOfLast - 2].Year}</p>
+                                    <button id = "details"  value = "${currentResult.Search[indexOfLast - 2].imdbID}">Details</button>
+                                </div>
+                            </div>`;
+            let second = document.createElement("div");
+            second.innerHTML = `<div style = "justify-content: start;width: 85%;margin:2% 1% 2% 1%;display: flex; height: 90%; background-color: darkgoldenrod;">
+                                <div id = "img1" style = "justify-content: start; width: 220px; height: 80%; margin: 5% 2% 5%% 2%;">
+                                    <img src="${currentResult.Search[indexOfLast - 1].Poster}" alt="" style = "width: 100%; height: 100%;">
+                                </div>
+                <div style="justify-content: end;margin-left:3%;font-family:Roboto; font-size:15px;">
+                    <p id = "type1">${currentResult.Search[indexOfLast - 1].Type}</p>
+                    <p id = "title1">${currentResult.Search[indexOfLast - 1].Title}</p>
+                    <p id = "year1">${currentResult.Search[indexOfLast - 1].Year}</p>
+                    <button id = "details"  value = "${currentResult.Search[indexOfLast - 1].imdbID}">Details</button>
+                </div>
+            </div>`;    
+            let third = document.createElement("div");
+            third.innerHTML = ` <div style = "justify-content: start;width: 85%;margin:2% 1% 2% 1%;display: flex; height: 90%; background-color: darkgoldenrod;">
+                                <div id = "img1" style = "justify-content: start; width: 220px; height: 80%; margin: 5% 2% 5%% 2%;">
+                                    <img src="${currentResult.Search[indexOfLast ].Poster}" alt="" style = "width: 100%; height: 100%;">
+                                </div>
+                    <div style="justify-content: end;margin-left:3%;font-family:Roboto; font-size:15px;">
+                        <p id = "type1">${currentResult.Search[indexOfLast].Type}</p>
+                        <p id = "title1">${currentResult.Search[indexOfLast].Title}</p>
+                        <p id = "year1">${currentResult.Search[indexOfLast].Year}</p>
+                        <button id = "details"  value = "${currentResult.Search[indexOfLast].imdbID}">Details</button>
+                    </div>
+                </div>`;
+            showDiv.appendChild(first);
+            showDiv.appendChild(second);
+            showDiv.appendChild(third);
+        }
+        document.querySelector("#search").addEventListener("click",(event)=>{
+            event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            let title = document.querySelector("#title").value;
+            let type = document.querySelector("#type").value;
+            xhr.open("GET",`http://www.omdbapi.com/?s=${title}&apikey=43e7b83f&type=${type}&page=${currPage}`);
+            xhr.onload = ()=>{
+                let result = JSON.parse(xhr.responseText);
+                let flag = JSON.parse(result.Response.toLowerCase());
+                if(flag){
+                    currentResult = result;
+                    currPage = 1;
+                    fillShowDiv();
+                    console.dir(currentResult);
+                }
+                else{
+                    alert(type + " not found!"); 
+                }
+            };
+            xhr.send();
+        });
+        document.addEventListener("click",function(event){
+            if(event.target.textContent == "Details"){
+                let xhr = new XMLHttpRequest();
+                this.value
+                xhr.open("GET",`http://www.omdbapi.com/?i=${event.target.value}&apikey=43e7b83f`);
+                xhr.onload = ()=>{
+                let details = JSON.parse(xhr.responseText);
+                let flag = JSON.parse(details.Response.toLowerCase());
+                if(flag){
+                    currDetails = details;
+                    console.dir(currDetails);
+                    document.querySelector("#main").style.display = "none";
+                    let showDetails = document.querySelector("#showDetails");
+                    showDetails.style.display = "flex";
+                    if(currDetails.Poster == "N/A"){
+                        currDetails.Poster = "notfound.jpg";
+                     }
+                    document.querySelector("#imgDet").src = currDetails.Poster;
+                    document.querySelector("#titleDet").value = currDetails.Title;
+                    document.querySelector("#release").value = currDetails.Released;
+                    document.querySelector("#country").value = currDetails.Country;
+                    document.querySelector("#genre").value = currDetails.Genre;
+                    document.querySelector("#director").value = currDetails.Director;
+                    document.querySelector("#writer").value = currDetails.Writer;
+                    document.querySelector("#actors").value = currDetails.Actors;
+                    document.querySelector("#awards").value = currDetails.Awards;
+                }
+            };
+            xhr.send();
+            }
+        });
+        document.querySelector("#back").addEventListener("click",()=>{
+            document.querySelector("#main").style.display = "block";
+            document.querySelector("#showDetails").style.display = "none";
+        });
+        document.querySelector("#slider").addEventListener("click",function(event){
+            if(parseInt(event.target.value)){
+                indexOfLast = 2;
+                document.querySelector("#rigth").disabled = false;
+                document.querySelector("#rigth").style.backgroundColor = "#BDB76B";
+                document.querySelector("#left").disabled = true;
+                document.querySelector("#left").style.backgroundColor = "darkgray";
+                currPage = event.target.textContent;
+                document.querySelector("#search").click();
+            }
+            else{
+              
+                let slider = document.querySelector("#slider");
+             
+                console.dir(slider);
+                console.dir(event.target);
+                switch(event.target.getAttribute("data-user")){
+                    case "rigth":
+                        if(slider.children[0].disabled){
+                            slider.children[0].disabled = false;
+                            slider.children[0].style.backgroundColor = "#BDB76B";
+                        }
+                        if(+lastOfSlider < Math.ceil(currentResult.totalResults/10)){
+                            for(let i = 1;i < slider.children.length - 1;i++){
+                                slider.children[i].textContent = +slider.children[i].textContent + 1;
+                            }
+                            lastOfSlider = slider.children[slider.children.length-2].textContent;
+                        }
+                        break;
+                    case "left":
+                        if(slider.children[7].disabled){
+                            slider.children[7].disabled = false;
+                            slider.children[7].style.backgroundColor = "#BDB76B";
+                        }
+                        if(lastOfSlider - 6 > 0){
+                            for(let i = 1;i < slider.children.length - 1;i++){
+                                slider.children[i].textContent = +slider.children[i].textContent - 1;
+                            }
+                            lastOfSlider = slider.children[slider.children.length-2].textContent;
+                        }
+                        break;
+                }
+                if(lastOfSlider == 6){
+                    slider.children[0].disabled = true;
+                    slider.children[0].style.backgroundColor = "#EEE8AA";
+                }
+                if(lastOfSlider == Math.ceil(currentResult.totalResults/10)){
+                    slider.children[7].disabled = true;
+                    slider.children[7].style.backgroundColor = "#EEE8AA";
+                }
+            }
+        });
+        document.querySelector("#rigth").addEventListener("click",function(){
+            if(indexOfLast != currentResult.Search.length - 2){
+                if(document.querySelector("#left").disabled){
+                    document.querySelector("#left").disabled = false;
+                    document.querySelector("#left").style.backgroundColor = "#BDB76B";
+                }
+                indexOfLast++;
+                fillShowDiv();
+            }
+            else{
+                indexOfLast++;
+                fillShowDiv();
+                this.disabled = true;
+                this.style.backgroundColor = "#EEE8AA";
+            }
+        });
+        document.querySelector("#left").addEventListener("click",function(){
+            if(indexOfLast != 3){
+                if(document.querySelector("#rigth").disabled){
+                    document.querySelector("#rigth").disabled = false;
+                    document.querySelector("#rigth").style.backgroundColor = "#BDB76B";
+                }
+                indexOfLast--;
+                fillShowDiv();
+            }
+            else{
+                indexOfLast--;
+                fillShowDiv();
+                this.disabled = true;
+                this.style.backgroundColor = "#EEE8AA";
+            }
+        });
+    </script>
+</body>
+</html>
